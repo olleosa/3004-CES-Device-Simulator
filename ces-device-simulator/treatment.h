@@ -15,16 +15,16 @@ public:
     Treatment(double, QString, int, int);
 
     double getFrequency() const;
-    void setFrequency(double value);
+    void changeFrequency();
 
     QString getWaveForm() const;
-    void setWaveForm(const QString &value);
+    void changeWaveForm();
 
     int getCurrent() const;
     void setCurrent(int value);
 
     int getCountdown() const;
-    void setCountdown(int value);
+    void changeCountdown();
 
 public slots:
 signals:
@@ -35,7 +35,7 @@ private:
     QString waveForm;
     int current; //power level
     int countdown;
-    QTime* startTime;
+    QTime startTime;
     QTimer* timer;
 };
 

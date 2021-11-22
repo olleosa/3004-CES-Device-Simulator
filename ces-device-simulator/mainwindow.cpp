@@ -13,3 +13,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::lowBattery(int level) {
+
+}

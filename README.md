@@ -27,7 +27,7 @@ CODE:
 
 DOCUMENTATION:
 - [x] Use Cases (Hafsa)
-  - [ ] Make Use Case Diagram (Sam)
+  - [ ] Make Use Case Diagram (Sam & Hafsa)
 - [ ] UML Diagram (Sam)
 - [ ] Sequence Diagrams (Harold...*)
 - [ ] Traceability Matrix (Bryan)

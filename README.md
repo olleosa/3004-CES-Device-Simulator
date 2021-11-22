@@ -13,9 +13,12 @@ CODE:
   - [x] Treatment
   - [ ] MainWindow
 - [ ] Power on/off (Bryan)
-- [ ] Change Waveform Button (Sam)
-- [ ] Change Frequency Button (Sam)
-- [ ] Change Timer Button (Sam)
+- [x] Change Waveform Button (Sam)
+  - [ ] Connect to UI once Harold is done (Sam)
+- [x] Change Frequency Button (Sam)
+  - [ ] Connect to UI once Harold is done (Sam)
+- [x] Change Timer Button (Sam)
+  - [ ] Connect to UI once Harold is done (Sam)
 - [ ] Increase/Decrease Current (UI + admin panel) (Hafsa)
 - [ ] Record Therapy Button (Hafsa)
 - [ ] Access Recordings (Hafsa)

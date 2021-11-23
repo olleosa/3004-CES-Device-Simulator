@@ -29,8 +29,8 @@ QString Treatment::getWaveForm() const { return waveForm; }
 void Treatment::changeWaveForm() {
     QString currentWaveForm = getWaveForm();
     if (currentWaveForm == "Alpha") {
-        waveForm = "Betta";
-    } else if (currentWaveForm == "Betta") {
+        waveForm = "Beta";
+    } else if (currentWaveForm == "Beta") {
         waveForm = "Gamma";
     } else {
         waveForm = "Alpha";

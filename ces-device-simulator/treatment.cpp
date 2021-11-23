@@ -9,6 +9,15 @@ Treatment::Treatment()
     current = 0;
     countdown = 20;
     startTime = QTime::currentTime();
+    timer = new QTimer();
+}
+
+void Treatment::startTreatment(){
+    timer->start(1000);
+}
+
+void Treatment::stopTreatment(){
+    timer->stop();
 }
 
 double Treatment::getFrequency() const { return frequency; }

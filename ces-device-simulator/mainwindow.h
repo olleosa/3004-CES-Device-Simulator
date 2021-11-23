@@ -3,7 +3,9 @@
 
 #include <QMainWindow>
 #include "recording.h"
+#include "treatment.h"
 #include <QVector>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,9 +18,15 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void startTreatment();
+    void stopTreatment();
+
+
 
 public slots:
     void lowBattery(int);
+    void powerOnOff();
+    void updateUITimer();
 
 signals:
 
@@ -26,5 +34,7 @@ signals:
 private:
     Ui::MainWindow *ui;
     QVector<Recording*> recordings;
+    bool poweredOn;
+    Treatment* treatment;
 };
 #endif // MAINWINDOW_H

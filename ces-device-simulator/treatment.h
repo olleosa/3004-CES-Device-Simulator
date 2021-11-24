@@ -14,6 +14,9 @@ public:
     Treatment();
     Treatment(double, QString, int, int);
 
+    void startTreatment();
+    void stopTreatment();
+
     double getFrequency() const;
     void changeFrequency();
 

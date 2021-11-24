@@ -18,15 +18,24 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void startTreatment();
-    void stopTreatment();
-
-
 
 public slots:
     void lowBattery(int);
-    void powerOnOff();
     void updateUITimer();
+
+    //handle main display button presses
+    void powerOnOff();
+    void freqButtonPressed();
+    void waveFormButtonPressed();
+    void increaseCurrentButtonPressed();
+    void decreaseCurrentButtonPressed();
+    void countdownButtonPressed();
+
+    //slots to interact with treatment class
+    void frequencyChanged(double);
+    void waveFormChanged(QString);
+    void currentChanged(int);
+    void countdownChanged(int);
 
 signals:
 
@@ -36,5 +45,9 @@ private:
     QVector<Recording*> recordings;
     bool poweredOn;
     Treatment* treatment;
+
+    void startTreatment();
+    void stopTreatment();
+    void updateButtonActivation();
 };
 #endif // MAINWINDOW_H

@@ -23,14 +23,21 @@ public:
     QString getWaveForm() const;
     void changeWaveForm();
 
-    int getCurrent() const;
-    void setCurrent(int value);
-
     int getCountdown() const;
     void changeCountdown();
 
+    int getCurrent() const;
+    void setCurrent(int value);
+    void increaseCurrent();
+    void decreaseCurrent();
+
 public slots:
 signals:
+    void frequencyChanged(double);
+    void waveFormChanged(QString);
+    void currentChanged(int);
+    void countdownChanged(int);
+
     void treatmentFinishedSignal();
 
 private:

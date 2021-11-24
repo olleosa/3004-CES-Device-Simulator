@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/decrease.svg</file>
+        <file>images/freq.svg</file>
+        <file>images/increase.svg</file>
+        <file>images/power.svg</file>
+        <file>images/save.svg</file>
+        <file>images/stimmer.svg</file>
+        <file>images/timer.svg</file>
+        <file>images/wave.svg</file>
+        <file>images/currentIcon.svg</file>
+    </qresource>
+</RCC>

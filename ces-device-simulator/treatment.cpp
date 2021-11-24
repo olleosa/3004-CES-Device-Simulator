@@ -22,15 +22,15 @@ void Treatment::stopTreatment(){
 
 double Treatment::getFrequency() const { return frequency; }
 void Treatment::changeFrequency() {
-    double currentFrequency = getFrequency();
-    if (currentFrequency == 0.5) {
+    if (frequency == 0.5) {
         frequency = 77;
-    } else if (currentFrequency == 77) {
+    } else if (frequency == 77) {
         frequency = 100;
     } else {
         frequency = 0.5;
     }
 
+    emit frequencyChanged(frequency);
     qDebug() << "new frequency: " << frequency;
 }
 
@@ -45,8 +45,11 @@ void Treatment::changeWaveForm() {
         waveForm = "Alpha";
     }
 
+    emit waveFormChanged(waveForm);
+
     qDebug() << "new waveform: " << waveForm;
 }
+
 
 int Treatment::getCountdown() const { return countdown; }
 void Treatment::changeCountdown() {
@@ -62,5 +65,32 @@ void Treatment::changeCountdown() {
             countdown = 20;
             break;
     }
+
+    emit countdownChanged(countdown);
     qDebug() << "new countdown: " << countdown;
+}
+
+int Treatment::getCurrent() const{ return current; }
+void Treatment::setCurrent(int value)
+{
+    current = value;
+    emit currentChanged(current);
+}
+
+void Treatment::increaseCurrent(){
+    if (current < 10){
+        current += 1;
+        emit currentChanged(current);
+    }   else{
+        qDebug() << "current at max value";
+    }
+}
+
+void Treatment::decreaseCurrent(){
+    if (current > 0){
+        current -= 1;
+        emit currentChanged(current);
+    }   else{
+        qDebug() << "current at min value";
+    }
 }

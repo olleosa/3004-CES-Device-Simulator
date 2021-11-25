@@ -102,7 +102,6 @@ void MainWindow::powerOnOff(){
 
     if (!poweredOn){
         treatmentOn = false;
-        updateButtonActivation();
         setDefaultDisplay();
         treatment->reset();
     }

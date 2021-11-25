@@ -15,6 +15,7 @@ class Treatment: public QObject
 
 public:
     Treatment();
+    Treatment(Treatment&);
     Treatment(double, QString, int, int);
     ~Treatment();
 
@@ -38,6 +39,7 @@ public:
     void increaseCurrent();
     void decreaseCurrent();
 
+    void setStartTime();
 public slots:
 signals:
     void frequencyChanged(double);

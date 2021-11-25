@@ -56,6 +56,7 @@ void MainWindow::setDefaultDisplay() {
 
 void MainWindow::startTreatment() {
     treatmentOn = true;
+    treatment->setStartTime();
     qDebug() << "Treatment started";
 }
 
@@ -65,18 +66,20 @@ void MainWindow::stopTreatment() {
 }
 
 void MainWindow::recordTreatment(){
-    int current = treatment->getCurrent();
-    int countdown = treatment->getCountdown();
-    QString waveForm = treatment->getWaveForm();
-    double frequency = treatment->getFrequency();
-
-    recordings.push_back(new Recording(new Treatment(frequency, waveForm, current, countdown)));
+    recordings.push_back(new Recording(new Treatment(*(treatment))));
     qDebug() << "Treatment recorded";
+    /*
+     * Not sure if youd rather reset time independently and keep the display/other settings the same as the previous ones
+     * for now this is simpler, we can change it later
+    */
+    treatment->reset();
+    setDefaultDisplay();
+
 }
 
 void MainWindow::accessRecordings(){
     if (recordings.size() == 0) {
-        qDebug() << "No recordings have been made"; 
+        qDebug() << "No recordings have been made";
     }
     for (int i = 0; i < recordings.size(); i++){
         qDebug() << "Recording #" << i+1;

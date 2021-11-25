@@ -13,6 +13,16 @@ Treatment::Treatment()
     timer = new QTimer();
 }
 
+Treatment::Treatment(Treatment& old) : QObject()
+{
+    this->frequency = old.frequency;
+    this->waveForm = old.waveForm;
+    this->current = old.current;
+    this->countdown = old.countdown;
+    this->startTime = old.startTime;
+}
+
+/*
 Treatment::Treatment(double f, QString w, int c, int cd) {
     frequency = f;
     waveForm = w;
@@ -21,10 +31,15 @@ Treatment::Treatment(double f, QString w, int c, int cd) {
     startTime = QTime::currentTime();
     timer = new QTimer();
 }
+*/
 
 Treatment::~Treatment()
 {
     delete timer;
+}
+
+void Treatment::setStartTime(){
+    startTime = QTime::currentTime();
 }
 
 void Treatment::reset()

@@ -1,15 +1,39 @@
 #include "treatment.h"
 #include <QDebug>
 #include <QTime>
+#include "treatment.h"
 
 Treatment::Treatment()
 {
     frequency = 0.5;
     waveForm = "Alpha";
-    current = 0;
+    current = 2;
     countdown = 20;
     startTime = QTime::currentTime();
     timer = new QTimer();
+}
+
+Treatment::Treatment(double f, QString w, int c, int cd) {
+    frequency = f;
+    waveForm = w;
+    current = c;
+    countdown = cd;
+    startTime = QTime::currentTime();
+    timer = new QTimer();
+}
+
+Treatment::~Treatment()
+{
+    delete timer;
+}
+
+void Treatment::reset()
+{
+    frequency = 0.5;
+    waveForm = "Alpha";
+    current = 2;
+    countdown = 20;
+    startTime = QTime::currentTime();
 }
 
 void Treatment::startTreatment(){
@@ -20,6 +44,7 @@ void Treatment::stopTreatment(){
     timer->stop();
 }
 
+QTime Treatment::getStartTime() const { return startTime; }
 double Treatment::getFrequency() const { return frequency; }
 void Treatment::changeFrequency() {
     if (frequency == 0.5) {
@@ -88,7 +113,10 @@ void Treatment::increaseCurrent(){
 
 void Treatment::decreaseCurrent(){
     if (current > 0){
-        current -= 1;
+        current -= 2;
+        if (current < 0){
+            current = 0;
+        }
         emit currentChanged(current);
     }   else{
         qDebug() << "current at min value";

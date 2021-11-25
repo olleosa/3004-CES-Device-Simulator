@@ -3,12 +3,15 @@
 
 #include "treatment.h"
 
+class Treatment;
+
 class Recording
 {
 public:
-    Recording();
-    Recording(Treatment*);
+    Recording(Treatment* t);
+    ~Recording();
 
+    Treatment* getTreatment();
 private:
     Treatment* treatment;
 

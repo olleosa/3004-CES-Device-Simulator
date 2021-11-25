@@ -19,9 +19,26 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-public slots:
+
+private:
+    Ui::MainWindow *ui;
+    QVector<Recording*> recordings;
+    bool poweredOn;
+    bool treatmentOn;
+    bool earclipsOn;
+
+    Treatment* treatment;
+
+    void startTreatment();
+    void stopTreatment();
+    void updateButtonActivation();
+    void setDefaultDisplay();
+
+private slots:
     void lowBattery(int);
     void updateUITimer();
+    void recordTreatment();
+    void accessRecordings();
 
     //handle main display button presses
     void powerOnOff();
@@ -30,6 +47,9 @@ public slots:
     void increaseCurrentButtonPressed();
     void decreaseCurrentButtonPressed();
     void countdownButtonPressed();
+    void overloadCurrentButtonPressed();
+    void applyEarclipsButtonPressed();
+    void removeEarclipsButtonPressed();
 
     //slots to interact with treatment class
     void frequencyChanged(double);
@@ -40,14 +60,5 @@ public slots:
 signals:
 
 
-private:
-    Ui::MainWindow *ui;
-    QVector<Recording*> recordings;
-    bool poweredOn;
-    Treatment* treatment;
-
-    void startTreatment();
-    void stopTreatment();
-    void updateButtonActivation();
 };
 #endif // MAINWINDOW_H

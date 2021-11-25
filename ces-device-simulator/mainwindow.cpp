@@ -45,6 +45,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::setDefaultDisplay() {
+    updateButtonActivation();
     ui->displayFrame->setVisible(poweredOn);
     ui->freqLabel->setText("0.5");
     ui->waveFormLabel->setText("Alpha");
@@ -74,6 +75,9 @@ void MainWindow::recordTreatment(){
 }
 
 void MainWindow::accessRecordings(){
+    if (recordings.size() == 0) {
+        qDebug() << "No recordings have been made"; 
+    }
     for (int i = 0; i < recordings.size(); i++){
         qDebug() << "Recording #" << i+1;
         qDebug() << "Frequency:" << recordings[i]->getTreatment()->getFrequency();
@@ -96,13 +100,10 @@ void MainWindow::updateUITimer(){
 
 void MainWindow::powerOnOff(){
     poweredOn = !poweredOn;
-
-    updateButtonActivation();
-    ui->displayFrame->setVisible(poweredOn);
+    setDefaultDisplay();
 
     if (!poweredOn){
         treatmentOn = false;
-        setDefaultDisplay();
         treatment->reset();
     }
 }
@@ -133,8 +134,6 @@ void MainWindow::removeEarclipsButtonPressed(){
 
 void MainWindow::overloadCurrentButtonPressed(){
     poweredOn = false;
-    ui->displayFrame->setVisible(poweredOn);
-    updateButtonActivation();
     treatment->reset();
     setDefaultDisplay();
     qDebug() << "Current exceeds 700 μA. Device has been permanently disabled.";
@@ -184,4 +183,5 @@ void MainWindow::updateButtonActivation(){
     ui->increaseCurrentButton->setEnabled(poweredOn);
     ui->decreaseCurrentButton->setEnabled(poweredOn);
     ui->recordTreatmentButton->setEnabled(poweredOn);
+    //do we want to also disable apply/remove earclips/overload current when device is off?.. 
 }

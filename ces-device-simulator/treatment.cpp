@@ -20,18 +20,8 @@ Treatment::Treatment(Treatment& old) : QObject()
     this->current = old.current;
     this->countdown = old.countdown;
     this->startTime = old.startTime;
+    this->timer = NULL; //not sure if we want to copy the timer as well
 }
-
-/*
-Treatment::Treatment(double f, QString w, int c, int cd) {
-    frequency = f;
-    waveForm = w;
-    current = c;
-    countdown = cd;
-    startTime = QTime::currentTime();
-    timer = new QTimer();
-}
-*/
 
 Treatment::~Treatment()
 {

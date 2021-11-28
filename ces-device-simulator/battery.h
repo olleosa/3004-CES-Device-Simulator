@@ -13,11 +13,12 @@ public:
 
     int getLevel() const;
     void setLevel(int value);
+    void batteryLow(int);
 
 public slots:
 
 signals:
-    void lowBatterySignal(int); //sends signal that battery is low (2 or 5)
+    void lowBattery(int); //sends signal that battery is low (2 or 5)
 
 
 private:

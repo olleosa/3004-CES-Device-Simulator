@@ -2,9 +2,6 @@
 
 Battery::Battery()
 {
-
-
-
 }
 
 int Battery::getLevel() const

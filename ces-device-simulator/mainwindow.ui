@@ -191,11 +191,11 @@ QPushButton:pressed {
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="recordTherapyButton">
+    <widget class="QPushButton" name="recordTreatmentButton">
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>387</y>
+       <y>400</y>
        <width>71</width>
        <height>41</height>
       </rect>
@@ -281,10 +281,10 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: #bfffbf;</string>
+       <string notr="true">background-color: rgb(229, 121, 121);</string>
       </property>
       <property name="text">
-       <string>CONTACT ON</string>
+       <string>CONTACT OFF</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -471,6 +471,19 @@ border-radius: 20px;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QPushButton" name="accessRecordingsButton">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>380</y>
+       <width>121</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Access Recordings</string>
+     </property>
+    </widget>
     <zorder>displayFrame</zorder>
     <zorder>cesBackground</zorder>
     <zorder>powerButton</zorder>
@@ -479,7 +492,8 @@ border-radius: 20px;</string>
     <zorder>changeCountdownButton</zorder>
     <zorder>changeWaveFormButton</zorder>
     <zorder>changeFreqButton</zorder>
-    <zorder>recordTherapyButton</zorder>
+    <zorder>recordTreatmentButton</zorder>
+    <zorder>accessRecordingsButton</zorder>
    </widget>
    <widget class="QFrame" name="adminFrame">
     <property name="geometry">
@@ -579,26 +593,20 @@ border-radius: 20px;</string>
       </rect>
      </property>
      <property name="text">
-      <string>Current (Power Level)</string>
+      <string>Overload current</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="currentLevel">
+    <widget class="QPushButton" name="currentOverloadButton">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>100</y>
-       <width>71</width>
-       <height>26</height>
+       <width>80</width>
+       <height>25</height>
       </rect>
      </property>
-     <property name="decimals">
-      <number>0</number>
-     </property>
-     <property name="maximum">
-      <double>800.000000000000000</double>
-     </property>
-     <property name="singleStep">
-      <double>100.000000000000000</double>
+     <property name="text">
+      <string>&gt; 700 uA</string>
      </property>
     </widget>
    </widget>

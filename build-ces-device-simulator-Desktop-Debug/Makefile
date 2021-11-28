@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = ces-device-simulator1.0.0
-DISTDIR = /home/student/ces_device_simulator/3004-CES-Device-Simulator/build-ces-device-simulator-Desktop-Debug/.tmp/ces-device-simulator1.0.0
+DISTDIR = /home/student/Documents/CES/3004-CES-Device-Simulator/build-ces-device-simulator-Desktop-Debug/.tmp/ces-device-simulator1.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so /usr/lib/x86_64-linux-gnu/libGL.so -lpthread   
@@ -391,19 +391,21 @@ compiler_moc_header_clean:
 moc_battery.cpp: ../ces-device-simulator/battery.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/ces_device_simulator/3004-CES-Device-Simulator/build-ces-device-simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/ces_device_simulator/3004-CES-Device-Simulator/ces-device-simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../ces-device-simulator/battery.h -o moc_battery.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/Documents/CES/3004-CES-Device-Simulator/build-ces-device-simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Documents/CES/3004-CES-Device-Simulator/ces-device-simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../ces-device-simulator/battery.h -o moc_battery.cpp
 
 moc_mainwindow.cpp: ../ces-device-simulator/mainwindow.h \
 		../ces-device-simulator/recording.h \
 		../ces-device-simulator/treatment.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/ces_device_simulator/3004-CES-Device-Simulator/build-ces-device-simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/ces_device_simulator/3004-CES-Device-Simulator/ces-device-simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../ces-device-simulator/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/Documents/CES/3004-CES-Device-Simulator/build-ces-device-simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Documents/CES/3004-CES-Device-Simulator/ces-device-simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../ces-device-simulator/mainwindow.h -o moc_mainwindow.cpp
 
 moc_treatment.cpp: ../ces-device-simulator/treatment.h \
+		../ces-device-simulator/recording.h \
+		../ces-device-simulator/treatment.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/ces_device_simulator/3004-CES-Device-Simulator/build-ces-device-simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/ces_device_simulator/3004-CES-Device-Simulator/ces-device-simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../ces-device-simulator/treatment.h -o moc_treatment.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/Documents/CES/3004-CES-Device-Simulator/build-ces-device-simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Documents/CES/3004-CES-Device-Simulator/ces-device-simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../ces-device-simulator/treatment.h -o moc_treatment.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -444,7 +446,8 @@ recording.o: ../ces-device-simulator/recording.cpp ../ces-device-simulator/recor
 		../ces-device-simulator/treatment.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o recording.o ../ces-device-simulator/recording.cpp
 
-treatment.o: ../ces-device-simulator/treatment.cpp ../ces-device-simulator/treatment.h
+treatment.o: ../ces-device-simulator/treatment.cpp ../ces-device-simulator/treatment.h \
+		../ces-device-simulator/recording.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o treatment.o ../ces-device-simulator/treatment.cpp
 
 qrc_ces.o: qrc_ces.cpp 

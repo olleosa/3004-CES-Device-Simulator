@@ -5,6 +5,9 @@
 #include <QTimer>
 #include <QTime>
 
+#include "recording.h"
+
+
 class Treatment: public QObject
 {
 
@@ -12,14 +15,19 @@ class Treatment: public QObject
 
 public:
     Treatment();
+    Treatment(Treatment&);
     Treatment(double, QString, int, int);
+    ~Treatment();
 
     void startTreatment();
     void stopTreatment();
 
+    void reset();
+
     double getFrequency() const;
     void changeFrequency();
 
+    QTime getStartTime() const;
     QString getWaveForm() const;
     void changeWaveForm();
 
@@ -31,6 +39,7 @@ public:
     void increaseCurrent();
     void decreaseCurrent();
 
+    void setStartTime();
 public slots:
 signals:
     void frequencyChanged(double);

@@ -9,5 +9,9 @@
         <file>images/timer.svg</file>
         <file>images/wave.svg</file>
         <file>images/currentIcon.svg</file>
+        <file>images/power_blue.svg</file>
+        <file>images/record_treat.svg</file>
+        <file>images/save_white.svg</file>
+        <file>images/record_white.svg</file>
     </qresource>
 </RCC>

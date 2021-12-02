@@ -26,6 +26,7 @@ private:
     bool poweredOn;
     bool treatmentOn;
     bool earclipsOn;
+    int currentCountdownLeft; //in seconds
     bool record;
 
     Battery* battery;
@@ -59,6 +60,9 @@ private slots:
     void waveFormChanged(QString);
     void currentChanged(int);
     void countdownChanged(int);
+
+    //timer
+    void initTimer(QTimer*);
 
     //battery
     void lowBattery(int);

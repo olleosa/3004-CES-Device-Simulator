@@ -36,9 +36,9 @@
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>600</y>
+       <y>605</y>
        <width>71</width>
-       <height>41</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -49,7 +49,9 @@ border-radius: 20px;
 }
 
 QPushButton:pressed {
-        background-color: #3d3d70;
+image: url(:/images/power_blue.svg);
+background-color: transparent;
+border-radius: 20px;
 }</string>
      </property>
      <property name="text">
@@ -108,7 +110,7 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>447</y>
+       <y>449</y>
        <width>51</width>
        <height>51</height>
       </rect>
@@ -147,7 +149,7 @@ background-color: rgba(255, 255, 255, 0);</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>447</y>
+       <y>449</y>
        <width>51</width>
        <height>51</height>
       </rect>
@@ -171,7 +173,7 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>447</y>
+       <y>449</y>
        <width>51</width>
        <height>51</height>
       </rect>
@@ -195,20 +197,22 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>400</y>
+       <y>388</y>
        <width>71</width>
        <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-image: url(:/images/save.svg);
+image: url(:/images/save_white.svg);
 background-color: transparent;
 border-radius: 20px;
 }
 
 QPushButton:pressed {
-        background-color: #ffffff;
+image: url(:/images/save.svg);
+background-color: transparent;
+border-radius: 20px;
 }</string>
      </property>
      <property name="text">
@@ -474,14 +478,27 @@ border-radius: 20px;</string>
     <widget class="QPushButton" name="accessRecordingsButton">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>380</y>
-       <width>121</width>
-       <height>25</height>
+       <x>305</x>
+       <y>391</y>
+       <width>35</width>
+       <height>35</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+image: url(:/images/record_white.svg);
+background-color: transparent;
+border-radius: 20px;
+}
+
+QPushButton:pressed {
+image: url(:/images/record_treat.svg);
+background-color: transparent;
+border-radius: 20px;
+}</string>
+     </property>
      <property name="text">
-      <string>Access Recordings</string>
+      <string/>
      </property>
     </widget>
     <zorder>displayFrame</zorder>

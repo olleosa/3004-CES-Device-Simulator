@@ -64,8 +64,9 @@ private slots:
     void updateUITimer();
 
     //battery
-    void lowBattery(int);
-    void updateBatteryLevel();
+    void lowBattery(double);
+    void batteryLevelChanged(double);
+    void updateBatteryLevel(double);
 signals:
 
 

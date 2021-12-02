@@ -42,7 +42,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer, &QTimer::timeout, this, &MainWindow::earclipsOff);
 
     //battery
-    connect(ui->batteryLevel, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &MainWindow::updateBatteryLevel);
+    connect(ui->batteryLevel, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &MainWindow::batteryLevelChanged);
+    connect(battery, &Battery::updateBatteryLevel, this, &MainWindow::updateBatteryLevel);
+    connect(battery, &Battery::lowBattery, this, &MainWindow::lowBattery);
 }
 
 MainWindow::~MainWindow()
@@ -71,11 +73,11 @@ void MainWindow::startTreatment() {
         return;
     }
 
+    //change currentCountdownLeft here for testing purposes
     if (earclipsOn){
         treatmentOn = true;
         treatment->startTreatment();
-        //currentCountdownLeft = treatment->getCountdown() * 60;
-        currentCountdownLeft = 30;
+        currentCountdownLeft = treatment->getCountdown() * 60;
         treatment->setStartTime();
         qDebug() << "Treatment started";
     }
@@ -104,13 +106,21 @@ void MainWindow::saveTreatment(Treatment* t){
     record = false;
 }
 
-void MainWindow::updateBatteryLevel() {
-    int level = ui->batteryLevel->value();
-    if (level <= 5) {
-        lowBattery(level);
-    }
-    ui->batteryLevelBar->setValue(level);
+void MainWindow::batteryLevelChanged(double level){
     battery->setLevel(level);
+}
+
+void MainWindow::updateBatteryLevel(double level) {
+    ui->batteryLevelBar->setValue(level);
+}
+
+void MainWindow::lowBattery(double level) {
+    if (level > 2) {
+       qDebug() << "Warning: low battery";
+    } else if (level <= 2) {
+       qDebug() << "Low battery. Power off";
+       powerOnOff();
+    }
 }
 
 void MainWindow::accessRecordings(){
@@ -128,14 +138,7 @@ void MainWindow::accessRecordings(){
     }
 }
 
-void MainWindow::lowBattery(int level) {
-    if (level > 2) {
-       qDebug() << "Warning: low battery";
-    } else if (level <= 2) {
-       qDebug() << "Low battery. Power off";
-       powerOnOff();
-    }
-}
+
 
 void MainWindow::updateUITimer()
 {
@@ -146,16 +149,6 @@ void MainWindow::updateUITimer()
     ui->countdownTimer->setText(displayTime);
 
     if (currentCountdownLeft == 0) stopTreatment();
-
-//    if currentCountdownLeft == 0
-//        treatment->getTimer()->stop();
-//        treatment->getTimer()->disconnect();
-//        earclips removed or disconnected as well (set to false)
-//    if earclips are removed
-//        pause timer
-//        reset timer if off for more than 5 seconds
-//    talk about what to do if timer button is pressed while treatment is happening
-//    way to end treatment early
 }
 
 

@@ -46,6 +46,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setDefaultDisplay() {
     updateButtonActivation();
+    ui->countdownTimer->setText("20:00");
     ui->displayFrame->setVisible(poweredOn);
     ui->freqLabel->setText("0.5");
     ui->waveFormLabel->setText("Alpha");
@@ -56,6 +57,8 @@ void MainWindow::setDefaultDisplay() {
 
 void MainWindow::startTreatment() {
     treatmentOn = true;
+    initTimer(treatment->getTimer());
+    currentCountdownLeft = treatment->getCountdown() * 60;
     treatment->setStartTime();
     qDebug() << "Treatment started";
 }
@@ -96,10 +99,36 @@ void MainWindow::lowBattery(int level) {
 
 }
 
-void MainWindow::updateUITimer(){
-    //TODO when we have a timer in the UI
+int num = 1000;
+
+void MainWindow::updateUITimer()
+{
+    currentCountdownLeft -= 1;
+    QString mins = QString::number(currentCountdownLeft / 60);
+    QString seconds = QString::number(currentCountdownLeft % 60);
+    QString displayTime = mins + ":" + seconds;
+    ui->countdownTimer->setText(displayTime);
+
+    //if currentCountdownLeft == 0
+        //treatment->getTimer()->stop();
+        //treatment->getTimer()->disconnect();
+        //earclips removed or disconnected as well (set to false)
+    //if earclips are removed
+        //pause timer
+        //reset timer if off for more than 5 seconds
+    //talk about what to do if timer button is pressed while treatment is happening
+    //way to end treatment early
 }
 
+void MainWindow::initTimer(QTimer* cTTimer)
+{
+    connect(cTTimer, &QTimer::timeout, this, &MainWindow::updateUITimer);
+
+    if (earclipsOn == true)
+    {
+        cTTimer->start(1000);
+    }
+}
 
 void MainWindow::powerOnOff(){
     poweredOn = !poweredOn;
@@ -176,6 +205,7 @@ void MainWindow::currentChanged(int current){
 
 void MainWindow::countdownChanged(int countdown){
     ui->timerLabel->setText(QString::number(countdown));
+    ui->countdownTimer->setText(QString::number(countdown) + ":00");
 }
 
 void MainWindow::updateButtonActivation(){

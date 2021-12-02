@@ -60,6 +60,7 @@ void Treatment::stopTreatment(){
 }
 
 QTime Treatment::getStartTime() const { return startTime; }
+QTimer* Treatment::getTimer() {return timer; }
 double Treatment::getFrequency() const { return frequency; }
 void Treatment::changeFrequency() {
     if (frequency == 0.5) {

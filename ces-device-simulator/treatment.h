@@ -40,6 +40,8 @@ public:
     void decreaseCurrent();
 
     void setStartTime();
+
+    QTimer* getTimer();
 public slots:
 signals:
     void frequencyChanged(double);

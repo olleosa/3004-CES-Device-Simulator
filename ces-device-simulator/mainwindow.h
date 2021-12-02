@@ -26,6 +26,7 @@ private:
     bool poweredOn;
     bool treatmentOn;
     bool earclipsOn;
+    int currentCountdownLeft; //in seconds
 
     Treatment* treatment;
 
@@ -56,6 +57,9 @@ private slots:
     void waveFormChanged(QString);
     void currentChanged(int);
     void countdownChanged(int);
+
+    //timer
+    void initTimer(QTimer*);
 
 signals:
 

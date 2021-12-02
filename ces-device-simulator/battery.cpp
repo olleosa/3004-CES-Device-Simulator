@@ -2,6 +2,7 @@
 
 Battery::Battery()
 {
+    level = 100;
 }
 
 int Battery::getLevel() const
@@ -13,3 +14,4 @@ void Battery::setLevel(int value)
 {
     level = value;
 }
+

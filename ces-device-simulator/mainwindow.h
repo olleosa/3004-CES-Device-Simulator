@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "recording.h"
 #include "treatment.h"
+#include "battery.h"
 #include <QVector>
 #include <QDebug>
 
@@ -22,21 +23,23 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QVector<Recording*> recordings;
     bool poweredOn;
     bool treatmentOn;
     bool earclipsOn;
     int currentCountdownLeft; //in seconds
+    bool record;
 
+    Battery* battery;
     Treatment* treatment;
+    QVector<Recording*> recordings;
 
     void startTreatment();
     void stopTreatment();
     void updateButtonActivation();
     void setDefaultDisplay();
+    void saveTreatment(Treatment* t);
 
 private slots:
-    void lowBattery(int);
     void updateUITimer();
     void recordTreatment();
     void accessRecordings();
@@ -61,6 +64,9 @@ private slots:
     //timer
     void initTimer(QTimer*);
 
+    //battery
+    void lowBattery(int);
+    void updateBatteryLevel();
 signals:
 
 

@@ -17,7 +17,9 @@ public:
 public slots:
 
 signals:
-    void lowBatterySignal(int); //sends signal that battery is low (2 or 5)
+    void lowBattery(int); //sends signal that battery is low (2 or 5)
+    //not really sure how you want to implement this but I made an initial battery implementation
+    // in mainwindow for testing purposes
 
 
 private:

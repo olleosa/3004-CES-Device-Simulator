@@ -32,6 +32,7 @@ private:
     Battery* battery;
     Treatment* treatment;
     QVector<Recording*> recordings;
+    QTimer* timer;
 
     void startTreatment();
     void stopTreatment();
@@ -40,9 +41,9 @@ private:
     void saveTreatment(Treatment* t);
 
 private slots:
-    void updateUITimer();
     void recordTreatment();
     void accessRecordings();
+    void earclipsOff();
 
     //handle main display button presses
     void powerOnOff();
@@ -60,13 +61,12 @@ private slots:
     void waveFormChanged(QString);
     void currentChanged(int);
     void countdownChanged(int);
-
-    //timer
-    void initTimer(QTimer*);
+    void updateUITimer();
 
     //battery
-    void lowBattery(int);
-    void updateBatteryLevel();
+    void lowBattery(double);
+    void batteryLevelChanged(double);
+    void updateBatteryLevel(double);
 signals:
 
 

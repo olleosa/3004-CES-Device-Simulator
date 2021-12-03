@@ -5,13 +5,17 @@ Battery::Battery()
     level = 100;
 }
 
-int Battery::getLevel() const
+double Battery::getLevel() const
 {
     return level;
 }
 
-void Battery::setLevel(int value)
+void Battery::setLevel(double value)
 {
     level = value;
+    emit updateBatteryLevel(level);
+    if (level <= 5){
+        emit lowBattery(level);
+    }
 }
 

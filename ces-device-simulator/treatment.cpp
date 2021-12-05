@@ -9,7 +9,7 @@ Treatment::Treatment()
     waveForm = "Alpha";
     current = 2;
     countdown = 20;
-    duration = countdown * 60;
+    duration = 0;
     startTime = QTime::currentTime();
     timer = new QTimer();
 }

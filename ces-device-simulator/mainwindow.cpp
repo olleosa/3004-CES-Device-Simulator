@@ -84,7 +84,7 @@ void MainWindow::startTreatment() {
 }
 
 void MainWindow::stopTreatment() {
-    int duration = abs(treatment->getCountdown() * 60 - currentCountdown);
+    int duration = treatment->getCountdown() * 60 - currentCountdown;
     treatment->setDuration(duration);
     treatmentOn = false;
     treatment->stopTreatment();

@@ -84,6 +84,8 @@ void MainWindow::startTreatment() {
 }
 
 void MainWindow::stopTreatment() {
+    int duration = abs(treatment->getCountdown() * 60 - currentCountdown);
+    treatment->setDuration(duration);
     treatmentOn = false;
     treatment->stopTreatment();
     ui->autoOffButton->setEnabled(true);
@@ -211,8 +213,6 @@ void MainWindow::removeEarclipsButtonPressed(){
 }
 
 void MainWindow::earclipsOff(){
-    int duration = treatment->getDuration() - currentCountdown;
-    treatment->setDuration(duration);
     qDebug() << "Earclips have been removed for 5 seconds, treatment is stopping";
     timer->stop();
     stopTreatment();

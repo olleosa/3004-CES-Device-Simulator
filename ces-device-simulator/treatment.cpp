@@ -75,13 +75,9 @@ QString Treatment::getStartTimeStr() {
 }
 
 QString Treatment::getDurationStr() {
-    QString dur = "0 mins. 0 secs.";
-    if (duration == 0) {
-        return dur;
-    }
-    int seconds = abs(duration % 60);
-    int minutes = abs(duration / 60);
-    dur = QString::number(minutes) + " mins. " + QString::number(seconds) + " secs.";
+    int seconds = duration % 60;
+    int minutes = duration / 60;
+    QString dur = QString::number(minutes) + " mins. " + QString::number(seconds) + " secs.";
     return dur;
 }
 

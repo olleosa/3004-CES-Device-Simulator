@@ -5,6 +5,10 @@
 
 class Treatment;
 
+/*
+ * Class purpose: keeps track of each recorded treatment
+*/
+
 class Recording
 {
 public:

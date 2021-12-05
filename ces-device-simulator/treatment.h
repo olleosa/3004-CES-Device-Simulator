@@ -7,6 +7,9 @@
 
 #include "recording.h"
 
+/*
+ * Class purpose: holds an individual treatment's info
+*/
 
 class Treatment: public QObject
 {
@@ -21,6 +24,9 @@ public:
 
     void startTreatment();
     void stopTreatment();
+
+    QString getStartTimeStr();
+    QString getDurationStr();
 
     void reset();
 
@@ -42,6 +48,10 @@ public:
     void setStartTime();
 
     QTimer* getTimer();
+
+    int getDuration() const;
+    void setDuration(int value);
+
 public slots:
 signals:
     void frequencyChanged(double);
@@ -56,6 +66,7 @@ private:
     QString waveForm;
     int current; //power level
     int countdown;
+    int duration;
     QTime startTime;
     QTimer* timer;
 };

@@ -37,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(treatment, &Treatment::currentChanged, this, &MainWindow::currentChanged);
     connect(treatment, &Treatment::countdownChanged, this, &MainWindow::countdownChanged);
     connect(treatment->getTimer(), &QTimer::timeout, this, &MainWindow::updateUITimer);
+    connect(treatment->getTimer(), &QTimer::timeout, this, &MainWindow::decreaseBattery);
+
 
     //timer for earclips being off for 5s
     connect(timer, &QTimer::timeout, this, &MainWindow::earclipsOff);
@@ -89,6 +91,7 @@ void MainWindow::stopTreatment() {
     treatmentOn = false;
     treatment->stopTreatment();
     ui->autoOffButton->setEnabled(true);
+    treatment->getTimer()->stop();
 
     if (record) {
         saveTreatment(treatment);
@@ -118,6 +121,7 @@ void MainWindow::batteryLevelChanged(double level){
 
 void MainWindow::updateBatteryLevel(double level) {
     ui->batteryLevelBar->setValue(level);
+    ui->batteryLevel->setValue(level);
 }
 
 void MainWindow::lowBattery(double level) {
@@ -160,6 +164,10 @@ void MainWindow::updateUITimer()
     if (currentCountdown == 0) stopTreatment();
 }
 
+void MainWindow::decreaseBattery(){
+    battery->decreaseBattery();
+}
+
 
 void MainWindow::powerOnOff(){
     if (!poweredOn && battery->getLevel() <= 2) {
@@ -170,6 +178,7 @@ void MainWindow::powerOnOff(){
     setDefaultDisplay();
 
     if (!poweredOn){
+        if (treatmentOn) stopTreatment();
         record = false;
         earclipsOn = false;
         treatmentOn = false;

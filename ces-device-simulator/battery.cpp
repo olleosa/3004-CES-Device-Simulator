@@ -19,3 +19,7 @@ void Battery::setLevel(double value)
     }
 }
 
+void Battery::decreaseBattery(){
+    setLevel(level - 0.1);
+}
+

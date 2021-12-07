@@ -17,6 +17,7 @@ public:
 
     double getLevel() const;
     void setLevel(double value);
+    void decreaseBattery();
 
 public slots:
 

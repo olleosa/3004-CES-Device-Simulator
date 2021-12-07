@@ -70,6 +70,7 @@ private slots:
     void updateUITimer();
 
     //battery
+    void decreaseBattery();
     void lowBattery(double);
     void batteryLevelChanged(double);
     void updateBatteryLevel(double);

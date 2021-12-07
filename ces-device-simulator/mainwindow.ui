@@ -626,6 +626,19 @@ border-radius: 20px;
       <string>&gt; 700 uA</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="autoOffButton">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>380</y>
+       <width>121</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Inactive for 30mins</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

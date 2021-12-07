@@ -8,6 +8,10 @@
 #include <QVector>
 #include <QDebug>
 
+/*
+ * Class purpose: controls the flow of the program, interacts with the ui
+*/
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -26,8 +30,9 @@ private:
     bool poweredOn;
     bool treatmentOn;
     bool earclipsOn;
-    int currentCountdownLeft; //in seconds
     bool record;
+    int currentCountdown; //in seconds
+
 
     Battery* battery;
     Treatment* treatment;
@@ -47,6 +52,7 @@ private slots:
 
     //handle main display button presses
     void powerOnOff();
+    void autoOff();
     void freqButtonPressed();
     void waveFormButtonPressed();
     void increaseCurrentButtonPressed();
@@ -67,8 +73,5 @@ private slots:
     void lowBattery(double);
     void batteryLevelChanged(double);
     void updateBatteryLevel(double);
-signals:
-
-
 };
 #endif // MAINWINDOW_H

@@ -9,6 +9,7 @@ Treatment::Treatment()
     waveForm = "Alpha";
     current = 2;
     countdown = 20;
+    duration = 0;
     startTime = QTime::currentTime();
     timer = new QTimer();
 }
@@ -20,7 +21,8 @@ Treatment::Treatment(Treatment& old) : QObject()
     this->current = old.current;
     this->countdown = old.countdown;
     this->startTime = old.startTime;
-    this->timer = NULL; //not sure if we want to copy the timer as well
+    this->duration = old.duration;
+    this->timer = NULL;
 }
 
 Treatment::~Treatment()
@@ -38,6 +40,7 @@ void Treatment::reset()
     waveForm = "Alpha";
     current = 2;
     countdown = 20;
+    duration = countdown * 60;
     startTime = QTime::currentTime();
 }
 
@@ -49,9 +52,11 @@ void Treatment::stopTreatment(){
     timer->stop();
 }
 
-QTime Treatment::getStartTime() const { return startTime; }
-QTimer* Treatment::getTimer() {return timer; }
-double Treatment::getFrequency() const { return frequency; }
+void Treatment::setDuration(int value)
+{
+    duration = value;
+}
+
 void Treatment::changeFrequency() {
     if (frequency == 0.5) {
         frequency = 77;
@@ -65,7 +70,17 @@ void Treatment::changeFrequency() {
     qDebug() << "new frequency: " << frequency;
 }
 
-QString Treatment::getWaveForm() const { return waveForm; }
+QString Treatment::getStartTimeStr() {
+    return startTime.toString();
+}
+
+QString Treatment::getDurationStr() {
+    int seconds = duration % 60;
+    int minutes = duration / 60;
+    QString dur = QString::number(minutes) + " mins. " + QString::number(seconds) + " secs.";
+    return dur;
+}
+
 void Treatment::changeWaveForm() {
     QString currentWaveForm = getWaveForm();
     if (currentWaveForm == "Alpha") {
@@ -101,7 +116,6 @@ void Treatment::changeCountdown() {
     qDebug() << "new countdown: " << countdown;
 }
 
-int Treatment::getCurrent() const{ return current; }
 void Treatment::setCurrent(int value)
 {
     current = value;
@@ -128,3 +142,10 @@ void Treatment::decreaseCurrent(){
         qDebug() << "current at min value";
     }
 }
+
+QTime Treatment::getStartTime() const { return startTime; }
+QTimer* Treatment::getTimer() {return timer; }
+int Treatment::getDuration() const { return duration; }
+QString Treatment::getWaveForm() const { return waveForm; }
+int Treatment::getCurrent() const{ return current; }
+double Treatment::getFrequency() const { return frequency; }

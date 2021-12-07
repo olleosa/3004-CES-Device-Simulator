@@ -3,6 +3,10 @@
 
 #include <QObject>
 
+/*
+ * Class purpose: represents properties of device battery
+*/
+
 class Battery: public QObject
 {
 
